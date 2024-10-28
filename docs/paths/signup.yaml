@@ -1,0 +1,40 @@
+post:
+  operationId: signin
+  summary: Signin
+  tags:
+    - Authentication
+  description: Sign up a new user
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/index.yaml#/SignupSchema
+  responses:
+    '201':
+      description: User created successfully
+      content:
+        application/json:
+          schema:
+            description: signin credentials details
+            $ref: '../schemas/index.yaml#/SignupResponse'
+    '400':
+      description: User already exists or validation error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: User already exists
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+                example: Database query failed

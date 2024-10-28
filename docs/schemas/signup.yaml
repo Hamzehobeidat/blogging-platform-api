@@ -1,0 +1,42 @@
+SignupSchema:
+  type: object
+  description: user details
+  required:
+    - firstName
+    - lastName
+    - email
+    - password
+  properties:
+    id:
+      type: number
+      description: user id
+      readOnly: true
+    firstName:
+      type: string
+      description: user firs tname
+    lastName:
+      type: string
+      description: user last name
+    email:
+      type: string
+      description: user email
+    password:
+      type: string
+      description: user password
+
+
+SignupResponse:
+  type: object
+  description: User created successfully
+  allOf:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          message:
+            type: string
+            example: User signed up successfully
+          token:
+            type: string
+            example: your.jwt.token.here
