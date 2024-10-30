@@ -1,6 +1,6 @@
 import { supabase } from '../../config/supabaseClient';
 import { postService } from '../../services';
-import { mockPost } from './mocks/mockData';
+import { mockPost, mockUser } from './mocks/mockData';
 
 jest.mock('../../config/supabaseClient', () => {
   const mSupabase = {
@@ -19,15 +19,16 @@ describe('Post Service Tests', () => {
     jest.clearAllMocks();
   });
 
-  // Test for creating a post
   test('createPost should create a post successfully', async () => {
     supabase.from().insert.mockResolvedValue({ body: mockPost });
 
-    await postService.createPost({
-      title: mockPost.title,
-      content: mockPost.content,
-      userId: mockPost.userId
-    });
+    await postService.createPost(
+      {
+        title: mockPost.title,
+        content: mockPost.content
+      },
+      { id: mockUser.id }
+    );
     expect(supabase.from).toHaveBeenCalledWith('post');
     expect(supabase.insert).toHaveBeenCalledWith([
       {
@@ -38,7 +39,6 @@ describe('Post Service Tests', () => {
     ]);
   });
 
-  // Test for fetching a post by ID
   test('getPostById should return a post if it exists', async () => {
     supabase.single.mockResolvedValue({ data: mockPost, error: null });
 

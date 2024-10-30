@@ -1,22 +1,10 @@
-SignupSchema:
+SigninSchema:
   type: object
   description: user details
   required:
-    - firstName
-    - lastName
     - email
     - password
   properties:
-    id:
-      type: number
-      description: user id
-      readOnly: true
-    firstName:
-      type: string
-      description: user firs tname
-    lastName:
-      type: string
-      description: user last name
     email:
       type: string
       description: user email
@@ -25,9 +13,9 @@ SignupSchema:
       description: user password
 
 
-SignupResponse:
+SigninResponse:
   type: object
-  description: User created successfully
+  description: User sign in successfully
   properties:
     accessToken:
       type: string

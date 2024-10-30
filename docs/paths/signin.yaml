@@ -1,15 +1,15 @@
 post:
-  operationId: signUp
-  summary: SignUp
+  operationId: signIn
+  summary: SignIn
   tags:
     - Authentication
-  description: Sign up a new user
+  description: Sign in a user
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: ../schemas/index.yaml#/SignupSchema
+          $ref: ../schemas/index.yaml#/SigninSchema
   responses:
     '201':
       description: User created successfully
@@ -17,9 +17,9 @@ post:
         application/json:
           schema:
             description: signin credentials details
-            $ref: '../schemas/index.yaml#/SignupResponse'
+            $ref: '../schemas/index.yaml#/SigninResponse'
     '400':
-      description: User already exists or validation error
+      description: Un valid  email or password
       content:
         application/json:
           schema:
@@ -27,7 +27,7 @@ post:
             properties:
               error:
                 type: string
-                example: User already exists
+                example: Un valid  email or password
     '500':
       description: Internal server error
       content:

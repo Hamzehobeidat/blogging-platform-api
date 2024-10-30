@@ -1,5 +1,5 @@
 import { supabase } from '../../config/supabaseClient';
-import generateAccessToken from '../../../utils/generateAccessToken';
+import generateAccessToken from '../../utils/generateAccessToken';
 import { mockToken, mockUser } from './mocks/mockData';
 import { authService } from '../../services';
 import bcrypt from 'bcrypt';
@@ -21,7 +21,7 @@ jest.mock('bcrypt', () => ({
   compare: jest.fn()
 }));
 
-jest.mock('../../../utils/generateAccessToken', () => jest.fn());
+jest.mock('../../utils/generateAccessToken', () => jest.fn());
 
 describe('Auth Service - signIn', () => {
   beforeEach(() => {

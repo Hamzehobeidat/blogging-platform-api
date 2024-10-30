@@ -2,8 +2,8 @@ import { postService } from '../../../services';
 
 export const createPost = async (req, res, next) => {
   try {
-    const { body } = req;
-    const status = await postService.createPost(body);
+    const { body, user } = req;
+    const status = await postService.createPost(body, user);
     return res.status(status).send();
   } catch (err) {
     return next(err);
@@ -45,6 +45,16 @@ export const deletePost = async (req, res, next) => {
     const { params } = req;
     const status = await postService.deletePost(params);
     return res.status(status).send();
+  } catch (err) {
+    return next(err);
+  }
+};
+
+export const getUserPostsByUserId = async (req, res, next) => {
+  try {
+    const { user } = req;
+    const posts = await postService.getUserPostsByUserId(user);
+    return res.json(posts);
   } catch (err) {
     return next(err);
   }

@@ -1,2 +1,10 @@
 Signup:
   $ref: ./signup.yaml
+Signin:
+  $ref: ./signin.yaml 
+Post:
+  $ref: ./post.yaml#/Default
+PostById:
+  $ref: ./post.yaml#/ById   
+PostUser:
+  $ref: ./post-user.yaml#/Default   

@@ -13,15 +13,11 @@ async function initializeSwagger() {
   try {
     const swaggerDocument = YAML.load(path.join(dirname, './docs/api.yaml'));
     const results = await multiFileSwagger(swaggerDocument);
-
-    // Add Swagger UI to your router after loading the resolved document
-    router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(results.resolved));
+    router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(results));
   } catch (error) {
-    console.error('Error initializing Swagger:', error);
+    throw error;
   }
 }
-
-// Call the async function to initialize Swagger
 initializeSwagger();
 
 router.use('/authentication', authRouter);

@@ -1,7 +1,7 @@
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import cors from 'cors';
-import logger from '../utils/logger';
+import logger from './utils/logger';
 import router from './api/v1';
 const app = express();
 const port = process.env.PORT || 5000;
@@ -18,5 +18,5 @@ app.use((err, req, res, next) => {
   });
 });
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  logger.info(`Server running on port ${port}`);
 });

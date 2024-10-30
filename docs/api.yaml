@@ -9,6 +9,14 @@ servers:
 paths:
   /api/v1/authentication/signup:
     $ref: ./paths/index.yaml#/Signup
+  /api/v1/authentication/signin:
+    $ref: ./paths/index.yaml#/Signin 
+  /api/v1/posts:
+    $ref: ./paths/index.yaml#/Post
+  /api/v1/posts/{postId}:
+    $ref: ./paths/index.yaml#/PostById  
+  /api/v1/posts/user:
+    $ref: ./paths/index.yaml#/PostUser         
 components:
   schemas:
     $ref: ./schemas/index.yaml

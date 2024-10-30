@@ -1,10 +1,10 @@
 import { supabase } from '../config/supabaseClient';
 
-const createPost = async body => {
-  const { userId, title, content } = body;
+const createPost = async (body, user) => {
+  const { title, content } = body;
   const { status, error } = await supabase
     .from('post')
-    .insert([{ user_id: userId, title, content }]);
+    .insert([{ user_id: user.id, title, content }]);
   if (error) throw error;
   return status;
 };
@@ -37,10 +37,17 @@ const deletePost = async params => {
   return status;
 };
 
+const getUserPostsByUserId = async user => {
+  const { data, error } = await supabase.from('post').select('*').eq('user_id', user?.id);
+  if (error) throw error;
+  return data;
+};
+
 export default {
   getPosts,
   getPostById,
   createPost,
   updatePost,
-  deletePost
+  deletePost,
+  getUserPostsByUserId
 };

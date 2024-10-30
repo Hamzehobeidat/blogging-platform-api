@@ -1,0 +1,23 @@
+PostSchema:
+  type: object
+  description: post details
+  required:
+    - title
+    - content
+
+  properties:
+    id:
+      type: number
+      description: country id
+      readOnly: true
+    title:
+      type: string
+      description: post title
+    content:
+      type: string
+      description: post content
+PostResponse:
+  type: object
+  description: post details
+  allOf:
+    - $ref: ./index.yaml#/PostSchema

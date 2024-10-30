@@ -1,0 +1,134 @@
+Default:
+  post:
+    operationId: addPst
+    summary: Add new post
+    tags:
+      - Post
+    description: Add new post
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+    requestBody:
+      description: add new post
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/PostSchema'
+    responses:
+      '201':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: country
+              $ref: '../schemas/index.yaml#/PostResponse'
+  get:
+    operationId: getAllPosts
+    summary: Get all posts
+    tags:
+      - Post
+    description: Get posts list
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              description: A list of posts
+              items:
+                $ref: '../schemas/index.yaml#/PostResponse'
+ById:
+  get:
+    operationId: getPost
+    summary: Get post details
+    tags:
+      - Post
+    description: Get post by id
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        description: post id
+
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: post details
+              $ref: '../schemas/index.yaml#/PostResponse'
+      '404':
+        description: Not found              
+
+  patch:
+    operationId: updatePost
+    summary: Update post
+    tags:
+      - Post
+    description: Update post by id
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        description: post id
+    requestBody:
+      description: Change the title, the content, or both.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/index.yaml#/PostSchema'
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              description: post details
+              $ref: '../schemas/index.yaml#/PostResponse'
+      '404':
+        description: Not found
+
+  delete:
+    operationId: deletePost
+    summary: Delete post by id
+    tags:
+      - Post
+    description: Delete post by id
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        description: post id
+    responses:
+      '200':
+        description: Successful operation
+      '404':
+        description: Not found              

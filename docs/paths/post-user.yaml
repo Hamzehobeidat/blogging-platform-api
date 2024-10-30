@@ -1,0 +1,23 @@
+Default:
+  get:
+    operationId: getAllPostsOfUser
+    summary: Get all posts of user
+    tags:
+      - Post
+    description: Get posts list of user
+    parameters:
+      - in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string    
+    responses:
+      '200':
+        description: Successful operation
+        content:
+          application/json:
+            schema:
+              type: array
+              description: A list of posts of user
+              items:
+                $ref: '../schemas/index.yaml#/PostResponse'

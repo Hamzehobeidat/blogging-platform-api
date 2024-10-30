@@ -14,3 +14,11 @@ SignupSchema:
 #   $ref: ./signin.yaml#/SignInBody
 SignupResponse:
   $ref: ./signup.yaml#/SignupResponse  
+SigninSchema:
+  $ref: ./signin.yaml#/SigninSchema
+SigninResponse:
+  $ref: ./signin.yaml#/SigninResponse 
+PostResponse:
+  $ref: ./post.yaml#/PostResponse      
+PostSchema:
+  $ref: ./post.yaml#/PostSchema      

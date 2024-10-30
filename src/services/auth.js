@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import { supabase } from '../config/supabaseClient';
-import generateAccessToken from '../../utils/generateAccessToken';
+import generateAccessToken from '../utils/generateAccessToken';
 
 const signIn = async ({ email, password }) => {
   const { data: user, error } = await supabase

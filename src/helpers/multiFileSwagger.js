@@ -1,7 +1,7 @@
 import path from 'path';
 import YAML from 'yamljs';
 import { resolveRefs } from 'json-refs';
-import logger from '../../utils/logger';
+import logger from '../utils/logger';
 
 const dirname = path.resolve();
 
