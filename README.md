@@ -39,5 +39,9 @@ This project is a full-stack blogging platform built using React/Next.js for the
 2. Backend URL: http://localhost:5000
   - This URL serves as the API endpoint for the frontend to interact with.
 
+## Postman collection:
+
+- You can find the file in the postman-collection folder.
+
 
 
