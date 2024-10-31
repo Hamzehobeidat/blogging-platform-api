@@ -41,7 +41,7 @@ This project is a full-stack blogging platform built using React/Next.js for the
 
 ## Postman collection:
 
-[Uploading Blogging Platform.postman_collection.json…]()
+- You can find the file in the postman-collection folder.
 
 
 
