@@ -1,13 +1,3 @@
-# Error:
-#   $ref: ./error.yaml#/Error
-# BadRequest:
-#   $ref: ./error.yaml#/BadRequest
-# Successful:
-#   $ref: ./common.yaml#/Successful
-# Timestamp:
-#   $ref: ./common.yaml#/Timestamp
-# CreatedAndUpdatedBy:
-#   $ref: ./common.yaml#/CreatedAndUpdatedBy
 SignupSchema:
   $ref: ./signup.yaml#/SignupSchema
 # SignInBody:
